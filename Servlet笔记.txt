@@ -1,5 +1,6 @@
 # Servlet-JSP
 Servlet/JSP学习
+web服务器：iis,apache ws,nginx...（高并发，抗压web服务器）
 
 
 1. 什么时Servlet?
@@ -16,7 +17,7 @@ Servlet/JSP学习
        Servlet就是一个组件，需要部署到相应的Servlet容器中才能运行.
      > 容器是什么?
        符合规范，提供组件运行环境的程序.
-       
+       浏览器-->请求web服务器（抗压，处理静态资源请求）-->调用Servlet服务器（处理业务逻辑，提供网络相关的服务）
 
 
 
