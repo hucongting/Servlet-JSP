@@ -31,8 +31,7 @@
             web.xml   --(部署描述文件（描述文件）)
   step4. 部署： 将step3建好的整个文件夹拷贝到Servlet容器中(也可将setp3创建好的整个文件夹使用jar命令压缩成一个以.war为后缀的文件再拷贝容器自动解压)
   step5. 启动Servlet容器,访问Servlet.(http://ip:port/myapp/url-pattern)(url-pattern在web.xml描述文件中定义)
-
-
+ 
 
 
 
