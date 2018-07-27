@@ -1,0 +1,19 @@
+### jsp
+
+1.隐含对象(jsp中例如：request...)
+  在jsp文件里面可以直接使用的对象：out,request,response...
+  a.为什么可以直接使用隐含对象?
+    容器自动添加获得这些隐含对象的代码
+  b.指令?
+    通知容器,在将jsp转换成一个Servlet时,额外做一些处理,比如导包.
+
+
+2.jsp是如何执行的?
+  step1. 容器要将jsp转换成一个对应的Servlet   (HTML,css,js在service方法中使用out.write输出;java代码在service照搬;<%=%>在service中out.print输出)
+  step2. 容器调用该Servlet.
+  
+  
+  
+  
+  
+  
