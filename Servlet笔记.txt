@@ -61,7 +61,22 @@
     b.重定向地址是任意的
     c.重定向后地址栏会发生改变
     
-
+####转发
+  1.什么是转发?
+    一个web组件将未完成的处理交给另外一个web组件继续做.(web组件是jsp或者servlet).
+    - 常见场景: 一个servlet获得相应的数据,然后将这些数据交给一个jsp来展现.
+  2.如何转发?
+    a.将数据绑定到request对象上(request.setAttribute(String name,Object obj)).(底层是Map)
+    b.获得转发器(RequestDispatcher rd = request.getRequestDispatcher(String uri))
+      - RequestDispatcher是一个接口,getRequestDispatcher方法返回一个符合该接口要求的对象,即转发器
+    c.rd.forward(request,response);
+      - 转发本质：通知容器调用service方法,另外一个web组件
+  3.特点?
+    a.转发之后,浏览器地址栏的地址不变
+    b.转发的目的地必须属于同一个web应用
+  
+    
+    
     
     
     
