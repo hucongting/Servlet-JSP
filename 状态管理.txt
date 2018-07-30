@@ -9,8 +9,35 @@
 
 3.Cookie
   1)什么是Cookie?
-    服务器临时存放在浏览器端的少量数据
-  2)
+    服务器临时存放在浏览器端的少量数据.
+    >当浏览器访问服务器时,服务器会将少量数据以set-cookie消息头的形式发送给浏览器.浏览器会将这些数据临时保存下来.
+    >当浏览器再次访问服务器时,会将这些数据以cookie消息头的形式发送给服务器.
+  2)添加Cookie
+    Cookie cookie = new Cookid(String name,String value); Cookie只能存放字符串.
+    response.addCookie(cookie);
+  3)读取Cookie(请求)
+    Cookie[] cookies = request.getCookies();
+  4)Cookie生存时间
+    a.默认情况下,浏览器会将Cookie保存在内存里面.(浏览器只要不关闭,Cookie会一直存在,当浏览器关闭时,Cookid会被删除).
+    b.可以调用setMaxAge()方法来设置Cookie的生存时间.cookie.setMaxAge(int seconds);
+      seconds > 0: 浏览器会将cookie保存在硬盘上,当超过指定的时间浏览器会将cookie删除.
+      seconds < 0: 默认值,浏览器会将cookie保存在内存里面.关闭浏览器会删除.
+      seconds = 0: 浏览器会将该cookie立即删除.(要删除一个cookie,设置其setMaxAge()值为0,再response.addCookie(c)).
+  5)Cookie的编码问题
+    a.Cookie只能保存合法的ascii字符.如果是中文,需要将中文转化为相应的ascii字符的形式.
+    解决方法: 
+    >在添加Cookie时,使用encode方法将中文转换成合法的ascii字符(URLEncoder.encode(String str,"utf-8")),不管是不是中文,建议使用encode方法处理
+    >在读取Cookie时,使用decode方法将ascii字符转换成中文(URLDecoder.decode(String str,"utf-8"))转换成中文
+    
+  
+      
+      
+      
+     
+
+
+
+
 
 
 
