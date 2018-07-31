@@ -28,9 +28,43 @@
     解决方法: 
     >在添加Cookie时,使用encode方法将中文转换成合法的ascii字符(URLEncoder.encode(String str,"utf-8")),不管是不是中文,建议使用encode方法处理
     >在读取Cookie时,使用decode方法将ascii字符转换成中文(URLDecoder.decode(String str,"utf-8"))转换成中文
+  6)Cookie的路径问题
+    a.什么是Cookie路径问题?
+      浏览器在向服务器上某个地址发送请求时,会比较该地址是否符合Cookie路径的要求,只有符合要求的Cookie才会发送给服务器.
+    b.Cookie的默认路径?
+      Cookie的默认路径等于添加该Cookie的web组件的路径.(如/aaa/bbb/test.jsp添加了一个Cookie,则Cookie的默认路径就是'/aaa/bbb')
+    c.匹配规则
+      请求地址要么等于Cookie的路径,要么时Cookie的子路径
+    d.修改Cookie的默认路径
+      cookie.setPath(String path);
+  7)Cookie的限制
+    a.可能被用户禁止
+    b.不安全.因为Cookie保存在浏览器端,并且不会加密,所以,对于敏感数据,如果一定要以Cookie的方式保存在浏览器端,一定要加密.
+    c.大小有限制(Cookie只能保存约4K左右的数据)
+    d.数量有限制(大约几百个)
+    e.只能存放字符串
     
+    
+    
+    
+    
+    
+### Session(会话)
+1.Session?
+   服务端为了保存用户状态而创建的一个特殊的对象.当浏览器访问服务器时,服务器创建一个Session对象(该对象有一个唯一的id,称之为SessionId),接下来,服务器    会将SessionId以Cookie的方式发送给浏览器.当浏览器再次访问服务器时,会将SessionId发送过来,服务器依据SessionId找到对应的Session对象.
+   方式1. HttpSession session = request.getSession(boolean flag); HttpSession是一个接口
+         >flag为true时: 先查看请求当中有没有SessionId,如果没有,则创建一个符合HttpSession接口要求的对象,即Session对象.如果有SessionId,则依据                             SessionId查找对应的Session对象,如果找到了,则返回该对象,如果找不到则创建一个新的Session对象.
+         >flag为false:  先查看请求当前有没有sessionId,如果没有,返回null,如果有sessionId,则依据sessionId查找相对应的Session对象,如果找到了,则返                         回该对象,找不到返回null
+   
+   方式2. HttpSession session = request.getSession(); 等价于request.getSession(true)
+         >session.getId(); 获取sessionId
+         >session.setAttribute(String name,Object obj);
+         >Object session = session.getAttribute(String name);
+   
+   
   
-      
+  
+    
       
       
      
