@@ -60,18 +60,17 @@
          >session.getId();  --获取sessionId
          >session.setAttribute(String name,Object obj);   --绑定数据
          >Object session = session.getAttribute(String name);  --获得绑定值
-         >session.removeAttribute(String name);   --解除绑定
-   
- 2.Session超时
+         >session.removeAttribute(String name);   --解除绑定   
+2.Session超时
    服务器会把空闲时间过长的session对象删除掉,为了节省空间,默认超时时间长度是30分钟.
    <session-config>
     <session-timeout>min</>
    <session-config>
- 3.session.invalidate();删除session
-  
-  
-    
-      
+3.session.invalidate();删除session
+4.session验证
+  1) 登录成功后在session对象上绑定一些数据
+  2) 如果请求地址需要保护,则进行session验证
+
       
      
 
