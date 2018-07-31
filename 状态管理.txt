@@ -57,9 +57,10 @@
          >flag为false:  先查看请求当前有没有sessionId,如果没有,返回null,如果有sessionId,则依据sessionId查找相对应的Session对象,如果找到了,则返                         回该对象,找不到返回null
    
    方式2. HttpSession session = request.getSession(); 等价于request.getSession(true)
-         >session.getId(); 获取sessionId
-         >session.setAttribute(String name,Object obj);
-         >Object session = session.getAttribute(String name);
+         >session.getId();  --获取sessionId
+         >session.setAttribute(String name,Object obj);   --绑定数据
+         >Object session = session.getAttribute(String name);  --获得绑定值
+         >session.removeAttribute(String name);   --解除绑定
    
    
   
