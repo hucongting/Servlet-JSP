@@ -62,7 +62,12 @@
          >Object session = session.getAttribute(String name);  --获得绑定值
          >session.removeAttribute(String name);   --解除绑定
    
-   
+ 2.Session超时
+   服务器会把空闲时间过长的session对象删除掉,为了节省空间,默认超时时间长度是30分钟.
+   <session-config>
+    <session-timeout>min</>
+   <session-config>
+ 3.session.invalidate();删除session
   
   
     
