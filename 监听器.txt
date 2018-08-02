@@ -1,0 +1,24 @@
+###监听器
+1.什么是监听器?
+  Servlet规范当中定义的一种特殊的组件,用于监听Servlet容器产生的事件进行相应的处理.
+  容器产生的事件主要有两大类：a.生命周期相关的事件 b.绑定数据相关的事件
+  a.容器创建了或者销毁了request,response,servlet上下文时产生的事件.
+  b.调用了request,response,servlet上下文时产生的事件.
+2.servlet上下文
+  a.什么是servlet上下文?      当容器启动之后,会为每一个web应用创建唯一的符合ServletContext接口要求的对象,该对象会一直存在,除非容器关闭.
+  b.如何获得servlet上下文?    GenericServlet,ServletConfig,FilterConfig,HttpSession都提供了一个方法(getServletContext)获得servlet上下文.
+  c.作用
+    1.绑定数据：response,request,servlet上下文都提供了绑定数据相关的方法(setAttribute,getAttribute,removeAttribute).
+      区别: 优先使用生命周期短的
+    2.可以访问的范围不一样
+      绑定到session对象上的数据只有与该session对应的用户访问的到,绑定到servlet上下文的数据可以被所有用户共享(都能访问到)
+  d.读取全局的初始化参数     全局的初始化参数指的是同一个web应用中的所有组件都能访问到的初始化参数
+    
+
+
+
+
+
+
+
+
