@@ -16,6 +16,22 @@
     
 
 
+###如何写一个监听器
+  step1.写一个java类,实现相应的监听器接口(依据监听的事件类型选择实现相应的监听器接口,例如实现HttpSessionListener监听对象的创建和销毁)
+  step2.在监听器接口方法中,实现监听处理逻辑.
+  step3.配置web.xml
+
+
+
+###容器如何处理请求路径?
+  比如,在浏览器地址栏输入http://ip:port/aaa/abc.html,浏览器会把/aaa/abc.html作为请求资源路径发给容器.
+  step1.容器默认认为访问的是一个Servlet. 容器会从web.xml文件中,查找是否有匹配的Servlet
+
+
+###如何让一个Servlet处理多种请求?
+  step1.<utl-pattern>采用后缀匹配
+  step2.分析请求资源路径,然后进行相应的处理
+  
 
 
 
